@@ -276,58 +276,7 @@
 
     <script src="h/web/main.ba9806c7bc46056e1919.js"></script>
     <script src="/j/v4/global.min.js?v=221"></script>
-    <script>
-        (function() {
 
-            // script is provided by Snowplow, published by web-discover CI deploy step.
-            (function(p, l, o, w, i, n, g) {
-                if (!p[i]) {
-                    p.GlobalSnowplowNamespace = p.GlobalSnowplowNamespace || [];
-                    p.GlobalSnowplowNamespace.push(i);
-                    p[i] = function() {
-                        (p[i].q = p[i].q || []).push(arguments)
-                    };
-                    p[i].q = p[i].q || [];
-                    n = l.createElement(o);
-                    g = l.getElementsByTagName(o)[0];
-                    n.async = 1;
-                    n.src = w;
-                    g.parentNode.insertBefore(n, g)
-                }
-            }(window, document, "script", "/web-utilities/public/static/te.js", "snowplow"));
-
-            const connectorUrl = 'd.getpocket.com'
-
-            snowplow('newTracker', 'sp', connectorUrl, {
-                appId: window.__STATE__.env === 'prod' ?
-                    'pocket-web' :
-                    'pocket-web-dev',
-                platform: 'web',
-                eventMethod: 'beacon',
-                respectDoNotTrack: false,
-                contexts: {
-                    webPage: true,
-                    performanceTiming: true
-                }
-            })
-
-            snowplow('addGlobalContexts', [{
-                schema: `iglu:com.pocket/user/jsonschema/1-0-0`,
-                data: {
-                    hashed_guid: "24ddfp95Tdt48G45e6A5c36O95gcTsq0272f84CfuUB755e9f3443N3aD71fN211"
-                }
-            }])
-
-            snowplow(
-                'enableActivityTracking',
-                10, // heartbeat delay
-                10 // heartbeat interval
-            )
-            snowplow('enableLinkClickTracking')
-            snowplow('enableFormTracking')
-            snowplow('trackPageView')
-        })()
-    </script>
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
